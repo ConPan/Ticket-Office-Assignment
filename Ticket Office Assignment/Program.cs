@@ -6,6 +6,9 @@ string placeList = "";
 int placesAvailable = 8000;
 while (placesAvailable <= 8000)
 {
+    Console.BackgroundColor = ConsoleColor.DarkBlue;
+    Console.WriteLine("New client:");
+    Console.BackgroundColor = ConsoleColor.Black;
     Console.WriteLine("Hello customer!\nIf you want to buy a ticket, please enter your age!");
     string? customerAge = Console.ReadLine();
 
@@ -44,9 +47,6 @@ while (placesAvailable <= 8000)
         Console.WriteLine($"Your place number is: " + placeNumber + ".");
         placeList = AddPlace(placeList, placeNumber);
         Console.WriteLine($"Sold places: " + placeList + ".");
-        Console.BackgroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine("New client:");
-        Console.BackgroundColor = ConsoleColor.Black;
     }
 
     static int PriceSetter(int age, string? standingOrSeated)
