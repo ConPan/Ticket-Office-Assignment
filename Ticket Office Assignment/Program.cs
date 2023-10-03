@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Linq;
-
+using Ticket_Office_Assignment;
 string placeList = "";
 
 int placesAvailable = 8000;
@@ -13,7 +13,22 @@ while (placesAvailable <= 8000)
     string? customerAge = Console.ReadLine();
 
     Console.WriteLine("Do you want a standing ticket or a seated ticket?");
-    string? standingOrSeated = Console.ReadLine().ToLower();
+
+
+    bool placeChoise = true;
+    string userInput = Console.ReadLine().ToLower();
+    if (userInput == "seated")
+    {
+        placeChoise = false;
+    }
+
+    else if (userInput == "standing") 
+    {
+        placeChoise = true;
+    }
+    
+    Place standingOrSeated = placeChoise ? Place.Standing : Place.Seated;
+    
 
     // Convert string customerAge to int age:
     int age = Convert.ToInt32(customerAge);
@@ -49,34 +64,34 @@ while (placesAvailable <= 8000)
         Console.WriteLine($"Sold places: " + placeList + ".");
     }
 
-    static int PriceSetter(int age, string? standingOrSeated)
+    static int PriceSetter(int age, Place standingOrSeated)
     {
-        if (age <= 11 && standingOrSeated == "seated")
+        if (age <= 11 &&  standingOrSeated == Place.Seated)
         {
             int price = 50;
             return price;
         }
-        else if (age <= 11 && standingOrSeated == "standing")
+        else if (age <= 11 && standingOrSeated == Place.Standing)
         {
             int price = 25;
             return price;
         }
-        else if (age >= 12 && age <= 64 && standingOrSeated == "seated")
+        else if (age >= 12 && age <= 64 && standingOrSeated == Place.Seated)
         {
             int price = 170;
             return price;
         }
-        else if (age >= 12 && age <= 64 && standingOrSeated == "standing")
+        else if (age >= 12 && age <= 64 && standingOrSeated == Place.Standing)
         {
             int price = 110;
             return price;
         }
-        if (age >= 65 && standingOrSeated == "seated")
+        if (age >= 65 && standingOrSeated == Place.Seated)
         {
             int price = 100;
             return price;
         }
-        if (age >= 65 && standingOrSeated == "standing")
+        if (age >= 65 && standingOrSeated == Place.Standing)
         {
             int price = 60;
             return price;
