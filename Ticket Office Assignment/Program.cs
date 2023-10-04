@@ -11,7 +11,6 @@ while (placesAvailable <= 8000)
     Console.BackgroundColor = ConsoleColor.Black;
     Console.WriteLine("Hello customer!\nIf you want to buy a ticket, please enter your age!");
     string? customerAge = Console.ReadLine();
-
     Console.WriteLine("Do you want a standing ticket or a seated ticket?");
 
 
@@ -21,7 +20,6 @@ while (placesAvailable <= 8000)
     {
         placeChoise = false;
     }
-
     else if (userInput == "standing") 
     {
         placeChoise = true;
